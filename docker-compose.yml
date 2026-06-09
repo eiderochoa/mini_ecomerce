@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # --- 1. SERVICIO DE PRODUCTOS ---
+  producto-service:
+    build:
+      context: ./backend/producto_service  
+      dockerfile: Dockerfile
+    container_name: msa_productos
+    volumes:
+      - ./backend/producto_service:/app   
+      - media_data:/app/media
+    ports:
+      - "8001:8000"
+    environment:
+      - DEBUG=True
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - ecommerce-net
+
+  # --- 2. SERVICIO DE CARRITO ---
+  carrito-service:
+    build:
+      context: ./backend/carrito_service   
+      dockerfile: Dockerfile
+    container_name: msa_carrito
+    volumes:
+      - ./backend/carrito_service:/app    
+    ports:
+      - "8002:8000"
+    environment:
+      - DEBUG=True
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - ecommerce-net
+    depends_on:
+      - producto-service
+
+  # --- 3. SERVICIO DE ÓRDENES ---
+  orden-service:
+    build:
+      context: ./backend/orden_service     
+      dockerfile: Dockerfile
+    container_name: msa_ordenes
+    volumes:
+      - ./backend/orden_service:/app       
+    ports:
+      - "8003:8000"
+    environment:
+      - DEBUG=True
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - ecommerce-net
+    depends_on:
+      - carrito-service
+      - producto-service
+# --- 4. SERVICIO FRONTEND (SPA) ---
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: spa_frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules  # Evita que los node_modules locales del host sobreescriban el contenedor
+    ports:
+      - "5173:5173"
+    networks:
+      - ecommerce-net
+    depends_on:
+      - producto-service
+      - carrito-service
+      - orden-service
+
+networks:
+  ecommerce-net:
+    driver: bridge
+
+volumes:
+  media_data:

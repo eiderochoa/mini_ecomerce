@@ -1,0 +1,64 @@
+# ==========================================
+# 🐍 PYTHON / DJANGO (Microservicios)
+# ==========================================
+# Entornos virtuales locales
+.venv/
+venv/
+env/
+ENV/
+
+# Archivos compilados de Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Bases de datos locales de prueba (SQLite)
+# Las bases de datos se generarán limpias en Docker mediante migraciones
+*.sqlite3
+db.sqlite3
+
+# Archivos de medios locales (Imágenes subidas en desarrollo)
+**/media/
+!**/media/.gitkeep
+
+# Carpetas de recolección de estáticos de Django
+**/static_root/
+
+# ==========================================
+# ⚛️ REACT / TYPESCRIPT (Frontend)
+# ==========================================
+# Dependencias de Node
+**/node_modules/
+
+# Carpetas de compilación de producción (Vite)
+**/dist/
+**/build/
+
+# Archivos de bitácora y logs de Node
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Caché de herramientas de tipado y Vite
+**/.vite/
+**/.eslintcache
+
+# ==========================================
+# 🌀 CONFIGURACIONES DE ENTORNO Y OS
+# ==========================================
+# Variables de entorno secretas (¡NUNCA SE SUBEN!)
+.env
+.env.local
+.env.*.local
+
+# Archivos del Sistema Operativo
+.DS_Store
+Thumbs.db
+
+# Configuración de editores (Opcional, previene subir configs de VS Code o JetBrains)
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
