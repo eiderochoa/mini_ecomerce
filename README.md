@@ -35,5 +35,6 @@ El proyecto está completamente orquestado. No necesitas instalar Python, Node.j
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <url-del-repositorio>
-   cd tienda_online
+   git clone https://github.com/eiderochoa/mini_ecomerce.git
+   cd mini_ecomerce
+   docker compose up -d
