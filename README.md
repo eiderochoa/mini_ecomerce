@@ -37,4 +37,4 @@ El proyecto está completamente orquestado. No necesitas instalar Python, Node.j
    ```bash
    git clone https://github.com/eiderochoa/mini_ecomerce.git
    cd mini_ecomerce
-   docker compose up -d
+   docker compose up -d --build
