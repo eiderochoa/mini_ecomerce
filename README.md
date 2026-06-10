@@ -41,7 +41,7 @@ El sistema está diseñado bajo el principio de responsabilidad única, dividien
    ```bash
    cd backend
    python -m venv venv
-   pip install -r productos_service/requirements.txt
+   pip install -r producto_service/requirements.txt
    ```
 3. **Instalar requerimientos de frontend:**
    ```bash
