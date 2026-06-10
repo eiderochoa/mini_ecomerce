@@ -44,18 +44,21 @@ El sistema está diseñado bajo el principio de responsabilidad única, dividien
    pip install -r productos_service/requirements.txt
    ```
 3. **Instalar requerimientos de frontend:**
-```bash
+   ```bash
    cd frontend
    npm install
+   ```
 4. **Desplegar los microservicios:**
-```bash
+   ```bash
    cd backend
    python productos_service/manage.py runserver 8001
    python carrito_service/manage.py runserver 8002
    python orden_service/manage.py runserver 8003
+   ```
 5. **Desplegar el frontend:**
-```bash
+   ```bash
    cd frontend
    npm run dev
+   ```
 
-##NOTA: Las direcciones estan escritas para linux, si usa windows utilice la barra invertida "\" (ej: orden_service\manage.py)
+### NOTA: Las direcciones estan escritas para linux, si usa windows utilice la barra invertida "\" (ej: orden_service\manage.py)
