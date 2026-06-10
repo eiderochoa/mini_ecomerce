@@ -29,12 +29,27 @@ El sistema está diseñado bajo el principio de responsabilidad única, dividien
 
 ---
 
-## 🚀 3. Instalación y Arranque Rápido (Full-Stack Dockerizado)
+## 🚀 3. Instalación y Arranque
 
-El proyecto está completamente orquestado. No necesitas instalar Python, Node.js ni bases de datos en tu máquina local. Solo requieres **Docker** y **Docker Compose** (o Docker Desktop).
 
 1. **Clonar el repositorio:**
    ```bash
    git clone https://github.com/eiderochoa/mini_ecomerce.git
    cd mini_ecomerce
-   docker compose up -d --build
+2. **Instalar requerimientos de backend:**
+   cd backend
+   python -m venv venv
+   pip install -r productos_service/requirements.txt
+3. **Instalar requerimientos de frontend:**
+   cd frontend
+   npm install
+4. **Desplegar los microservicios:**
+   cd backend
+   python productos_service/manage.py runserver 8001
+   python carrito_service/manage.py runserver 8002
+   python orden_service/manage.py runserver 8003
+5. **Desplegar el frontend:**
+   cd frontend
+   npm run dev
+
+NOTA: Las direcciones estan escritas para linux, si usa windows utilice la barra invertida "\" (ej: orden_service\manage.py)
