@@ -36,13 +36,13 @@ El sistema está diseñado bajo el principio de responsabilidad única, dividien
    ```bash
    git clone https://github.com/eiderochoa/mini_ecomerce.git
    cd mini_ecomerce
-```
+   ```
 2. **Instalar requerimientos de backend:**
-```bash
+   ```bash
    cd backend
    python -m venv venv
    pip install -r productos_service/requirements.txt
-bash```
+   ```
 3. **Instalar requerimientos de frontend:**
 ```bash
    cd frontend
