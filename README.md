@@ -37,6 +37,7 @@ El sistema está diseñado bajo el principio de responsabilidad única, dividien
    git clone https://github.com/eiderochoa/mini_ecomerce.git
    cd mini_ecomerce
 2. **Instalar requerimientos de backend:**
+```bash
    cd backend
    python -m venv venv
    pip install -r productos_service/requirements.txt
