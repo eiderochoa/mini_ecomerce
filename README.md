@@ -51,7 +51,7 @@ El sistema está diseñado bajo el principio de responsabilidad única, dividien
 4. **Desplegar los microservicios:**
    ```bash
    cd backend
-   python productos_service/manage.py runserver 8001
+   python producto_service/manage.py runserver 8001
    python carrito_service/manage.py runserver 8002
    python orden_service/manage.py runserver 8003
    ```
@@ -61,4 +61,4 @@ El sistema está diseñado bajo el principio de responsabilidad única, dividien
    npm run dev
    ```
 
-### NOTA: Las direcciones estan escritas para linux, si usa windows utilice la barra invertida "\" (ej: orden_service\manage.py)
+**NOTA:** Las direcciones estan escritas para linux, si usa windows utilice la barra invertida "\" (ej: orden_service\manage.py)
